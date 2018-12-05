@@ -52,13 +52,6 @@ INSTALLED_APPS = [
 
     # REST framework
     'rest_framework',
-
-    # Django Elasticsearch integration
-    'django_elasticsearch_dsl',
-
-    # Django REST framework Elasticsearch integration (this package)
-    'django_elasticsearch_dsl_drf',
-    # ...
 ]
 
 MIDDLEWARE = [
@@ -167,15 +160,6 @@ CART_SESSION_ID = 'cart'
 PAYPAL_RECEIVER_EMAIL = ''
 PAYPAL_TEST = True
 
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://localhost:9200/',
-        'INDEX_NAME': 'django_project-default',
-    },
-}
-HAYSTACK_ROUTERS = ('shop.search.routers.LanguageRouter',)
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
@@ -188,14 +172,5 @@ REST_FRAMEWORK = {
 }
 
 # Elasticsearch configuration
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': 'localhost:9200'
-    },
-}
 
-ELASTICSEARCH_INDEX_NAMES = {
-    'search_indexes.product': 'product',
- 
-}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
