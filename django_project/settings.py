@@ -157,7 +157,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 CART_SESSION_ID = 'cart'
 
 # django-paypal settings
-PAYPAL_RECEIVER_EMAIL = ''
+PAYPAL_RECEIVER_EMAIL = 'nicholpt56@gmail.com'
 PAYPAL_TEST = True
 
 REST_FRAMEWORK = {
