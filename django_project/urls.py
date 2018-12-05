@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 from shop import views as shop_views
-from search_indexes import urls as search_index_urls
+
 
 
 
@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^payment/', include('payment.urls', namespace='payment')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
-    url(r'^search/', include(search_index_urls)),
+
     # ...
 ]
 
