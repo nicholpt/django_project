@@ -4,6 +4,8 @@ from cart.forms import CartAddProductForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+#setting @login_required so that django will request a valid user session
+
 @login_required
 def product_list(request, category_slug=None):
     category = None

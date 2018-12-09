@@ -18,3 +18,5 @@ application = get_wsgi_application()
 
 
 application = WhiteNoise(application)
+
+#setting default variables + enabling whitenoise for Heroku

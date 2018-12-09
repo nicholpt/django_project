@@ -5,8 +5,11 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from .models import Order, OrderItem
 
+#for the administration backend
+
 
 def export_to_csv(modeladmin, request, queryset):
+    #copied from stackoverflow (lol)
     opts = modeladmin.model._meta
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename={}.csv'.format(opts.verbose_name)
@@ -29,11 +32,13 @@ export_to_csv.short_description = 'Export to CSV'
 
 
 def order_detail(obj):
+    #prints order details
     return '<a href="{}">View</a>'.format(reverse('orders:admin_order_detail',
                                                   args=[obj.id]))
 order_detail.allow_tags = True
 
 def order_pdf(obj):
+    #returns a pdf
     return '<a href="{}">PDF</a>'.format(reverse('orders:admin_order_pdf',
                                                  args=[obj.id]))
 order_pdf.allow_tags = True
@@ -41,11 +46,13 @@ order_pdf.short_description = 'PDF bill'
 
 
 class OrderItemInline(admin.TabularInline):
+    #puts product in admin tabular
     model = OrderItem
     raw_id_fields = ['product']
 
 
 class OrderAdmin(admin.ModelAdmin):
+    #creates the column names for admin tabular view
     list_display = ['id',
                     'first_name',
                     'last_name',

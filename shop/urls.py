@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+#url.py is needed for django to know what url directs to which module/function/class
 
 urlpatterns = [
     url(r'^$', views.product_list, name='product_list'),

@@ -10,8 +10,16 @@ from django.views.generic import (
 )
 from .models import Post
 
+#note: some of these are no longer used for our project
+#was originally going to allow users to make posts themselves
+#instead function was taken out 
+#could be readded easily by creating URLS and calling the functions
+#in url.py
+#as well as creating links to the urls in our html files
+
 
 def home(request):
+    #main page 
     context = {
         'posts': Post.objects.all()
     }
@@ -77,4 +85,5 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
+    #about page
     return render(request, 'store/about.html', {'title': 'About'})

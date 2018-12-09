@@ -7,3 +7,5 @@ urlpatterns = [
     url(r'^shop/cart/add/(?P<product_id>\d+)/$', views.cart_add, name='cart_add'),
     url(r'^shop/cart/remove/(?P<product_id>\d+)/$', views.cart_remove, name='cart_remove'),
 ]
+
+#url.py is needed for django to know what url directs to which module/function/class

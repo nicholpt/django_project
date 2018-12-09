@@ -10,7 +10,7 @@ from .views import (
 from . import views
 from shop import views as shop_views
 
-
+#url.py is needed for django to know what url directs to which module/function/class
 urlpatterns = [
     url(r'^$', PostListView.as_view(), name='store-home'),
     url(r'home/$', PostListView.as_view(), name='store-home'),

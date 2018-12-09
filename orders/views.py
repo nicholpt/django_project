@@ -10,7 +10,13 @@ from .forms import OrderCreateForm
 from .tasks import order_created
 from cart.cart import Cart
 
-
+#IF the view is called with a POST request
+#order create function calls the cart and creates an order request
+#which is saved 
+#the function will then clear the cart and redirect to payment module
+#(or more specifically our paypal API)
+#but if the function is called with a GET request
+#the view will display our order create form
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
@@ -36,12 +42,14 @@ def order_create(request):
                                                         'form': form})
 
 
+#for our administration backend
+#creates the order detail for each order
 @staff_member_required
 def admin_order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'admin/orders/order/detail.html', {'order': order})
 
-
+#creates a pdf
 @staff_member_required
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Order, id=order_id)

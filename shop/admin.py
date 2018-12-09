@@ -13,3 +13,5 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Product, ProductAdmin)
+
+#module makes it possible for us to add items from admin view

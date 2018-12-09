@@ -2,6 +2,10 @@ from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
 
+#did not write this myself.
+#cart class is an object that adds all of the products and saves a cart session
+#this data is stored until a cart_clear() is intiated
+#if there is no cart that exists, this class will create a new cart session
 
 class Cart(object):
 
@@ -12,7 +16,7 @@ class Cart(object):
         self.session = request.session
         cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
-            # save an empty cart in the session
+            # saves an empty cart in the session
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
 
@@ -27,7 +31,7 @@ class Cart(object):
         Iterate over the items in the cart and get the products from the database.
         """
         product_ids = self.cart.keys()
-        # get the product objects and add them to the cart
+        # gets the product objects and add them to the cart
         products = Product.objects.filter(id__in=product_ids)
         for product in products:
             self.cart[str(product.id)]['product'] = product

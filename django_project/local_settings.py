@@ -11,3 +11,5 @@ DATABASES = {
 }
 
 DEBUG = True
+
+#local settings when server is initiated on local machine.

@@ -8,3 +8,5 @@ class PaymentConfig(AppConfig):
     def ready(self):
         # import signal handlers
         import payment.signals
+
+#setting app configs

@@ -8,7 +8,8 @@ import weasyprint
 from io import BytesIO
 from orders.models import Order
 
-
+#sending and email if payment is completed for paypal
+#did not write this, copied from paypal documentations
 def payment_notification(sender, **kwargs):
     ipn_obj = sender
     if ipn_obj.payment_status == ST_PP_COMPLETED:

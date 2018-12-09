@@ -5,6 +5,9 @@ from .cart import Cart
 from .forms import CartAddProductForm
 
 
+#these modules create and add/remove cart product items. 
+#cart add requires the website to initiate a POST request in order to execute
+#after adding to cart, user is redirected to a cart details page
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)

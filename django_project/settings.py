@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+#the following are settings/variables that need to be declared for
+#django as well as imported modules/functions that we are using
+
 import os
 import dj_database_url
 
@@ -53,6 +56,8 @@ INSTALLED_APPS = [
     # REST framework
     'rest_framework',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

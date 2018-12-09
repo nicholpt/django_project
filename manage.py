@@ -13,3 +13,7 @@ if __name__ == '__main__':
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+
+#needed to run the web server 
+#this is essentially django's executing its commands

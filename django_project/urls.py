@@ -21,9 +21,11 @@ from django.conf.urls.static import static
 from users import views as user_views
 from shop import views as shop_views
 
+#this is the main url.py file django will look towards first
+#it is (sometimes) necessary to delcare all URLS here 
 
-
-
+#url.py is needed for django to know what url 
+#directs to which module/function/class
 
 urlpatterns = [
     url(r'admin/', include(admin.site.urls)),
@@ -64,3 +66,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#for debugging purposes

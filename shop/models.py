@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+#declaring category and product classes to be stored in DB
 
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
